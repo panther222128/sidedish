@@ -20,29 +20,32 @@ class ViewController: UIViewController {
         registerNib()
         configureDataSource()
         createSnapshot()
+        print(customCollectionView.visibleCells)
     }
     
     private func registerNib() {
         let nibName = UINib(nibName: "CustomCollectionViewCell", bundle: nil)
-        customCollectionView.register(nibName, forCellWithReuseIdentifier: "CustomCellReuseIdentifier")
+        customCollectionView.register(nibName, forCellWithReuseIdentifier: CustomCollectionViewCell.reuseIdentifier)
     }
     
     private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<CustomCollectionViewCell, Model> { (cell, indexPath, model) in
-            cell.memberImage.image = self.viewModel.returnMember[indexPath.row].image
-            cell.memberName.text = self.viewModel.returnMember[indexPath.row].name
-            cell.memberRole.text = self.viewModel.returnMember[indexPath.row].role
-            cell.memberNickname.text = self.viewModel.returnMember[indexPath.row].nickName
-        }
         dataSource = UICollectionViewDiffableDataSource<Section, Model>(collectionView: customCollectionView) {
             (collectionView, indexPath, model) -> CustomCollectionViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: model)
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.reuseIdentifier, for: indexPath) as? CustomCollectionViewCell else { return CustomCollectionViewCell() }
+            
+            cell.memberImage.image = model.image
+            cell.memberName.text = "\(model.name)"
+            cell.memberRole.text = model.role
+            cell.memberNickname.text = model.nickName
+            
+            return cell
         }
     }
     
     private func createSnapshot() {
-        snapshot.appendSections([Section.main])
-        snapshot.appendItems(viewModel.returnMember, toSection: Section.main)
+        snapshot.appendSections([.main])
+        snapshot.appendItems(viewModel.returnMember)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
