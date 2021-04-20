@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "220px-20180121_오마이걸_고양_스타필드_팬싸인회_(9).jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
