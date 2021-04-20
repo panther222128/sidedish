@@ -20,30 +20,29 @@ class ViewController: UIViewController {
         registerNib()
         configureDataSource()
         createSnapshot()
-        
     }
     
     private func registerNib() {
-        let nibName = UINib(nibName: "CollectionViewCell", bundle: nil)
+        let nibName = UINib(nibName: "CustomCollectionViewCell", bundle: nil)
         customCollectionView.register(nibName, forCellWithReuseIdentifier: "CustomCellReuseIdentifier")
     }
     
     private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<CollectionViewCell, Model> { (cell, indexPath, model) in
-            cell.image.image = self.viewModel.member[indexPath.row].image
-            cell.name.text = self.viewModel.member[indexPath.row].name
-            cell.role.text = self.viewModel.member[indexPath.row].role
-            cell.nickname.text = self.viewModel.member[indexPath.row].nickName
+        let cellRegistration = UICollectionView.CellRegistration<CustomCollectionViewCell, Model> { (cell, indexPath, model) in
+            cell.memberImage.image = self.viewModel.returnMember[indexPath.row].image
+            cell.memberName.text = self.viewModel.returnMember[indexPath.row].name
+            cell.memberRole.text = self.viewModel.returnMember[indexPath.row].role
+            cell.memberNickname.text = self.viewModel.returnMember[indexPath.row].nickName
         }
         dataSource = UICollectionViewDiffableDataSource<Section, Model>(collectionView: customCollectionView) {
-            (collectionView, indexPath, model) -> CollectionViewCell? in
+            (collectionView, indexPath, model) -> CustomCollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: model)
         }
     }
     
     private func createSnapshot() {
         snapshot.appendSections([Section.main])
-        snapshot.appendItems(viewModel.member, toSection: Section.main)
+        snapshot.appendItems(viewModel.returnMember, toSection: Section.main)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
