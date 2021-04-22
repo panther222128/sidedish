@@ -1,5 +1,5 @@
 //
-//  ProductCell.swift
+//  DishCell.swift
 //  SidedishApp
 //
 //  Created by Lia on 2021/04/20.
@@ -9,9 +9,9 @@ import UIKit
 
 class DishCell: UICollectionViewCell {
 
-    static let identifier = "ProductCell"
+    static let reuseIdentifier = "DishCell"
     
-    @IBOutlet weak var image: UIImage!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
