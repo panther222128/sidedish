@@ -21,5 +21,11 @@ class DishCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    func fill(with product: Dish) {
+        self.nameLabel.text = product.title
+        self.descriptionLabel.text = product.description
+        self.priceLabel.text = product.salePrice
+    }
 
 }
