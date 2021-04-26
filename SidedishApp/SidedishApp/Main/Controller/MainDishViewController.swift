@@ -9,10 +9,11 @@ import UIKit
 
 class MainDishViewController: UIViewController {
     
+    private var viewModel = MainViewModel()
+    
     @IBOutlet weak var dishCollectionView: UICollectionView!
     
-    private var dishDataSource: UICollectionViewDiffableDataSource<Section, ProductModel>!
-    private var snapshot = NSDiffableDataSourceSnapshot<Section, ProductModel>()
+    private var dishDataSource: UICollectionViewDiffableDataSource<Section, Dish>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,65 +26,29 @@ class MainDishViewController: UIViewController {
 
 extension MainDishViewController {
     
-    enum Section: Int, CaseIterable {
-        case mainDish = 0, hotSoup, sideDish
-    }
-    
-    typealias DishType = ProductModel
-    typealias SectionType = Section
-    
     private func registerNib() {
         let nibName = UINib(nibName: DishCell.reuseIdentifier, bundle: nil)
-        dishCollectionView.register(nibName, forCellWithReuseIdentifier: DishCell.reuseIdentifier)
+        self.dishCollectionView.register(nibName, forCellWithReuseIdentifier: DishCell.reuseIdentifier)
     }
     
     private func configureDataSource() {
-        self.dishDataSource = UICollectionViewDiffableDataSource<SectionType, DishType>(collectionView: dishCollectionView) { (collectionView, indexPath, dish) -> DishCell? in
+        
+        self.dishDataSource = UICollectionViewDiffableDataSource<Section, Dish>(collectionView: dishCollectionView) { (collectionView, indexPath, dish) -> DishCell? in
             
-            guard let cell = self.dishCollectionView.dequeueReusableCell(withReuseIdentifier: DishCell.reuseIdentifier, for: indexPath) as? DishCell else { return DishCell()  }
-            print(cell)
-            print("d")
+            let cell = self.dishCollectionView.dequeueReusableCell(withReuseIdentifier: DishCell.reuseIdentifier, for: indexPath) as! DishCell
             
-            cell.imageView.image = dish.image
-            cell.nameLabel.text = dish.name
-            cell.descriptionLabel.text = dish.description
-            cell.priceLabel.text = dish.price
-            cell.discountedPriceLabel.text = dish.discountedPrice
-            cell.eventBadgeLabel.text = dish.eventBadge
-            
+            cell.fill(with: dish)
             return cell
         }
     }
     
     private func createSnapshot() {
-        self.snapshot.appendSections([.mainDish])
-        self.snapshot.appendItems(DishManager.setDish())
-        self.dishDataSource.apply(snapshot, animatingDifferences: false)
-    }
-}
-
-
-
-
-class DishManager {
-    typealias Dish = ProductModel
-    
-    private var dishes: [Dish]
-    
-    init(dishes: [Dish]) {
-        self.dishes = dishes
-    }
-    
-    static func setDish() -> [Dish] {
-        var dishes = [Dish]()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Dish>()
         
-        let data = try! Data(contentsOf: URL(string: "https://user-images.githubusercontent.com/73650994/115364788-ba0b4d00-a1fe-11eb-8066-7ed2c620d43e.jpeg")!)
-        guard let image = UIImage(data: data) else {return []}
-        
-        let dish = Dish(image: image, name: "쿼카", description: "졸귀", price: "100억", discountedPrice: "그딴 거 없다", eventBadge: "초특가")
-        
-        dishes.append(dish)
-        
-        return dishes
+        self.viewModel.update{ (section, items) in
+            snapshot.appendSections([section])
+            snapshot.appendItems(items)
+            self.dishDataSource.apply(snapshot)
+        }
     }
 }
