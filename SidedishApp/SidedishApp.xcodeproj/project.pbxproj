@@ -19,6 +19,8 @@
 		AE859953262EB8630033C525 /* MainDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE859952262EB8630033C525 /* MainDishViewController.swift */; };
 		AEAE35642635B42B00A91A03 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE35632635B42B00A91A03 /* MainViewModel.swift */; };
 		AEAE35672635B73D00A91A03 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE35662635B73D00A91A03 /* NetworkService.swift */; };
+		AEBD83532637A1FD0037D8AE /* DishSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBD83512637A1FD0037D8AE /* DishSupplementaryView.swift */; };
+		AEBD83542637A1FD0037D8AE /* DishSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEBD83522637A1FD0037D8AE /* DishSupplementaryView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		AE859952262EB8630033C525 /* MainDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDishViewController.swift; sourceTree = "<group>"; };
 		AEAE35632635B42B00A91A03 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AEAE35662635B73D00A91A03 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		AEBD83512637A1FD0037D8AE /* DishSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishSupplementaryView.swift; sourceTree = "<group>"; };
+		AEBD83522637A1FD0037D8AE /* DishSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishSupplementaryView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				AE85994C262EB3FD0033C525 /* DishCell.swift */,
+				AEBD83512637A1FD0037D8AE /* DishSupplementaryView.swift */,
+				AEBD83522637A1FD0037D8AE /* DishSupplementaryView.xib */,
 				AE85994D262EB3FD0033C525 /* DishCell.xib */,
 			);
 			path = Cell;
@@ -230,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBD83542637A1FD0037D8AE /* DishSupplementaryView.xib in Resources */,
 				A00886A3262D688F00C86BF6 /* LaunchScreen.storyboard in Resources */,
 				AE85994F262EB3FD0033C525 /* DishCell.xib in Resources */,
 				A00886A0262D688F00C86BF6 /* Assets.xcassets in Resources */,
@@ -250,6 +257,7 @@
 				A0088697262D688E00C86BF6 /* AppDelegate.swift in Sources */,
 				AE85994E262EB3FD0033C525 /* DishCell.swift in Sources */,
 				AE859953262EB8630033C525 /* MainDishViewController.swift in Sources */,
+				AEBD83532637A1FD0037D8AE /* DishSupplementaryView.swift in Sources */,
 				A0088699262D688E00C86BF6 /* SceneDelegate.swift in Sources */,
 				A00886B9262D6AC000C86BF6 /* Dish.swift in Sources */,
 			);
