@@ -8,11 +8,11 @@
 import Foundation
 import Combine
 
-//protocol MainViewModel {
-//    func s()
-//}
+protocol MainViewModel {
+    func update(completion: @escaping (Section, [Dish]) -> Void)
+}
 
-class MainViewModel{//: MainViewModel {
+class DefaultMainViewModel: MainViewModel {
     
     private let useCase = MainUseCase() // UseCase
     private var cancellable = Set<AnyCancellable>()
@@ -28,7 +28,6 @@ class MainViewModel{//: MainViewModel {
     
     func update(completion: @escaping (Section, [Dish]) -> Void) {
         useCase.didFetchData { (section, item) in
-            print("🙀", section, item)
             completion(section, item)
         }
     }
