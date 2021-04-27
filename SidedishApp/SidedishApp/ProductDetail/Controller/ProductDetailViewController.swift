@@ -25,6 +25,8 @@ class ProductDetailViewController: UIViewController {
         configureOrderQuantity()
         configureOrderInfo()
         configureProductDetailDescription()
+        configureProductDetailDescription1()
+        configureProductDetailDescription2()
     }
     
     func configureProductImage() {
@@ -79,16 +81,46 @@ class ProductDetailViewController: UIViewController {
     
     func configureProductDetailDescription() {
         if let containerView = productDetailView.containerView {
-            let imageToDisplay = UIImage(named: "a.jpg")
+            let imageToDisplay = UIImage(named: "무야호.jpg")
             let imageView = UIImageView(image: imageToDisplay)
             let xCoordinate = containerView.productDescription.frame.minX
             let yCoordinate = containerView.productDescription.frame.minY
-            imageView.contentMode = .scaleAspectFit
-            if let image = UIImage(named: "a.jpg") {
+            imageView.contentMode = .scaleAspectFill
+            if let image = UIImage(named: "무야호.jpg") {
                 let imageHeight = image.size.height
                 imageView.frame = CGRect(x: xCoordinate, y: yCoordinate, width: containerView.productDescription.frame.width, height: imageHeight)
             }
             containerView.productDescription.image = imageToDisplay
+        }
+    }
+    
+    func configureProductDetailDescription1() {
+        if let containerView = productDetailView.containerView {
+            let imageToDisplay = UIImage(named: "무야호.jpg")
+            let imageView = UIImageView(image: imageToDisplay)
+            let xCoordinate = containerView.productDesxcription1.frame.minX
+            let yCoordinate = containerView.productDesxcription1.frame.minY
+            imageView.contentMode = .scaleAspectFill
+            if let image = UIImage(named: "무야호.jpg") {
+                let imageHeight = image.size.height
+                imageView.frame = CGRect(x: xCoordinate, y: yCoordinate, width: containerView.productDesxcription1.frame.width, height: imageHeight)
+            }
+            containerView.productDesxcription1.image = imageToDisplay
+        }
+    }
+    
+    func configureProductDetailDescription2() {
+        if let containerView = productDetailView.containerView {
+            let imageToDisplay = UIImage(named: "무야호.jpg")
+            let imageView = UIImageView(image: imageToDisplay)
+            let xCoordinate = containerView.productDesxcription2.frame.minX
+            let yCoordinate = containerView.productDesxcription2.frame.minY
+            imageView.contentMode = .scaleAspectFill
+            if let image = UIImage(named: "무야호.jpg") {
+                let imageHeight = image.size.height
+                imageView.frame = CGRect(x: xCoordinate, y: yCoordinate, width: containerView.productDesxcription2.frame.width, height: imageHeight)
+            }
+            containerView.productDesxcription2.image = imageToDisplay
         }
     }
     
