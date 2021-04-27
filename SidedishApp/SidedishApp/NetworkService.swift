@@ -25,10 +25,10 @@ enum EndPoint {
     }
 }
 
-enum Section: CaseIterable {
-    case main
-    case soup
-    case side
+enum Section: String, CaseIterable {
+    case main = "한그릇 뚝딱 메인 요리"
+    case soup = "김이 모락모락 국.찌개"
+    case side = "언제 먹어도 든든한 밑반찬"
 }
 
 enum NetworkError: Error {
