@@ -17,6 +17,7 @@ class MainDishViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dishCollectionView.delegate = self
         registerNib()
         configureDataSource()
         createSnapshot()
@@ -33,12 +34,22 @@ extension MainDishViewController {
     
     private func configureDataSource() {
         
+        let headerRegisteration = UICollectionView.SupplementaryRegistration<DishSupplementaryView>.init(supplementaryNib: DishSupplementaryView.nib, elementKind: UICollectionView.elementKindSectionHeader) { (supplymentaryView, string, indexPath) in
+            print(indexPath)
+            supplymentaryView.sectionTitleLabel.text = Section.allCases[indexPath.section].rawValue
+        }
+        print()
+        
         self.dishDataSource = UICollectionViewDiffableDataSource<Section, Dish>(collectionView: dishCollectionView) { (collectionView, indexPath, dish) -> DishCell? in
             
             let cell = self.dishCollectionView.dequeueReusableCell(withReuseIdentifier: DishCell.reuseIdentifier, for: indexPath) as! DishCell
             
             cell.fill(with: dish)
             return cell
+        }
+        
+        self.dishDataSource.supplementaryViewProvider = { (collectionView, elementkind, indexPath) -> UICollectionReusableView? in
+            return     self.dishCollectionView.dequeueConfiguredReusableSupplementary(using: headerRegisteration, for: indexPath)
         }
     }
     
@@ -51,4 +62,21 @@ extension MainDishViewController {
             self.dishDataSource.apply(snapshot)
         }
     }
+}
+
+extension MainDishViewController : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: CGFloat(130))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 70)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            backgroundColorForSectionAt section: Int) -> UIColor{
+        .darkGray
+    }
+    
 }
