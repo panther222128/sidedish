@@ -92,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				A00886AF262D691E00C86BF6 /* ViewModel */,
-				A00886B0262D692300C86BF6 /* Controller */,
+				A00886B0262D692300C86BF6 /* View */,
 				A00886AD262D691400C86BF6 /* Model */,
 			);
 			path = Main;
@@ -123,14 +123,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		A00886B0262D692300C86BF6 /* Controller */ = {
+		A00886B0262D692300C86BF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				A008869A262D688E00C86BF6 /* ViewController.swift */,
 				AE859952262EB8630033C525 /* MainDishViewController.swift */,
 				A00886AE262D691700C86BF6 /* Cell */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		A00886B1262D692E00C86BF6 /* Controller */ = {
