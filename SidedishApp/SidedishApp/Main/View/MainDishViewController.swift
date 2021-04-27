@@ -9,7 +9,7 @@ import UIKit
 
 class MainDishViewController: UIViewController {
     
-    private var viewModel = MainViewModel()
+    private var viewModel = DefaultMainViewModel()
     
     @IBOutlet weak var dishCollectionView: UICollectionView!
     
