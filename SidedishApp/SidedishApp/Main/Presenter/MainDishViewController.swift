@@ -9,7 +9,7 @@ import UIKit
 
 class MainDishViewController: UIViewController {
     
-    private var viewModel = DefaultMainViewModel()
+    private var viewModel: MainViewModel!
     
     @IBOutlet weak var dishCollectionView: UICollectionView!
     
@@ -17,6 +17,9 @@ class MainDishViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = DefaultMainViewModel()
+        viewModel.requestAll()
+        
         dishCollectionView.delegate = self
         registerNib()
         configureDataSource()
@@ -35,10 +38,9 @@ extension MainDishViewController {
     private func configureDataSource() {
         
         let headerRegisteration = UICollectionView.SupplementaryRegistration<DishSupplementaryView>.init(supplementaryNib: DishSupplementaryView.nib, elementKind: UICollectionView.elementKindSectionHeader) { (supplymentaryView, string, indexPath) in
-            print(indexPath)
+            
             supplymentaryView.sectionTitleLabel.text = Section.allCases[indexPath.section].rawValue
         }
-        print()
         
         self.dishDataSource = UICollectionViewDiffableDataSource<Section, Dish>(collectionView: dishCollectionView) { (collectionView, indexPath, dish) -> DishCell? in
             
@@ -76,7 +78,12 @@ extension MainDishViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                             layout collectionViewLayout: UICollectionViewLayout,
                             backgroundColorForSectionAt section: Int) -> UIColor{
-        .darkGray
+        if section % 2 == 0 { return .darkGray }
+        return .systemBackground
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DetailDishViewController") as DetailDishViewController
+        self.navigationController?.pushViewController(detailViewController, animated: false)
+    }
 }

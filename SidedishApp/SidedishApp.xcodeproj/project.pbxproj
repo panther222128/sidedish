@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A0088697262D688E00C86BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0088696262D688E00C86BF6 /* AppDelegate.swift */; };
 		A0088699262D688E00C86BF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0088698262D688E00C86BF6 /* SceneDelegate.swift */; };
-		A008869B262D688E00C86BF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008869A262D688E00C86BF6 /* ViewController.swift */; };
 		A008869E262D688E00C86BF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A008869C262D688E00C86BF6 /* Main.storyboard */; };
 		A00886A3262D688F00C86BF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00886A1262D688F00C86BF6 /* LaunchScreen.storyboard */; };
 		A00886B9262D6AC000C86BF6 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00886B8262D6AC000C86BF6 /* Dish.swift */; };
@@ -32,7 +31,6 @@
 		A0088693262D688E00C86BF6 /* SidedishApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SidedishApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0088696262D688E00C86BF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0088698262D688E00C86BF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A008869A262D688E00C86BF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A008869D262D688E00C86BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A00886A2262D688F00C86BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A00886A4262D688F00C86BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				A0088695262D688E00C86BF6 /* SidedishApp */,
-				A00886B5262D698E00C86BF6 /* Base */,
 				A00886A4262D688F00C86BF6 /* Info.plist */,
 				A0088694262D688E00C86BF6 /* Products */,
 			);
@@ -85,6 +82,7 @@
 		A0088695262D688E00C86BF6 /* SidedishApp */ = {
 			isa = PBXGroup;
 			children = (
+				A00886B5262D698E00C86BF6 /* Base */,
 				A00886AC262D690D00C86BF6 /* Main */,
 				A00886AB262D68FF00C86BF6 /* ProductDetail */,
 				AE65074E26394D4D009D26B1 /* Model */,
@@ -143,7 +141,6 @@
 		A00886B0262D692300C86BF6 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				A008869A262D688E00C86BF6 /* ViewController.swift */,
 				AE859952262EB8630033C525 /* MainDishViewController.swift */,
 				A00886AE262D691700C86BF6 /* View */,
 			);
@@ -268,7 +265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEAE35642635B42B00A91A03 /* MainViewModel.swift in Sources */,
-				A008869B262D688E00C86BF6 /* ViewController.swift in Sources */,
 				AEAE35672635B73D00A91A03 /* NetworkService.swift in Sources */,
 				AE65075426395317009D26B1 /* DetailViewModel.swift in Sources */,
 				A0088697262D688E00C86BF6 /* AppDelegate.swift in Sources */,

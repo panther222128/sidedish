@@ -15,11 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        
-        let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainDishViewController")
+
+        let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainDishViewController") as MainDishViewController
+
         let navigationViewController = UINavigationController(rootViewController: mainViewController)
-        
-//        window?.rootViewController = navigationViewController
+
+        window?.rootViewController = navigationViewController
     }
 
 }
