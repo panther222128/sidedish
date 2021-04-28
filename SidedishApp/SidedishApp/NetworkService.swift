@@ -14,7 +14,7 @@ enum EndPoint {
     private static let host = "h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com"
     private static let path = "/develop/baminchan/"
     
-    static func url(type: Section) -> URL? {
+    static func url(type: String) -> URL? {
         var components = URLComponents()
         
         components.scheme = EndPoint.scheme
@@ -25,12 +25,6 @@ enum EndPoint {
     }
 }
 
-enum Section: String, CaseIterable {
-    case main = "한그릇 뚝딱 메인 요리"
-    case soup = "김이 모락모락 국.찌개"
-    case side = "언제 먹어도 든든한 밑반찬"
-}
-
 enum NetworkError: Error {
     case BadURL
     case DecodeError
@@ -38,7 +32,7 @@ enum NetworkError: Error {
 
 class NetworkService {
     
-    func request(url: URL) -> AnyPublisher<Dishes, Error> {
+    func request<T: Decodable>(type: T.Type, url: URL) -> AnyPublisher<T, Error> {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "get"
@@ -51,7 +45,7 @@ class NetworkService {
                     }
                 return element.data
             }
-            .decode(type: Dishes.self, decoder: JSONDecoder())
+            .decode(type: T.self, decoder: JSONDecoder())
             .mapError({ (error) -> Error in
                 return error
             })

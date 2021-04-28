@@ -45,9 +45,9 @@ class MainUseCase {
     
     
     func request(type: Section) {
-        let url = EndPoint.url(type: type)!
+        let url = EndPoint.url(type: "\(type)")!
         
-        NetworkService().request(url: url)
+        NetworkService().request(type: Dishes.self, url: url)
             .receive(on: DispatchQueue.main)
             .sink { (error) in
                 print(error)
