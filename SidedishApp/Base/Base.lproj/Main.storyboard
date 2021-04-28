@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="-207" y="84"/>
         </scene>
-        <!--Product Detail View Controller-->
+        <!--Detail Dish View Controller-->
         <scene sceneID="O7v-SH-hET">
             <objects>
-                <viewController id="4ZY-am-dp9" customClass="ProductDetailViewController" customModule="SidedishApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4ZY-am-dp9" customClass="DetailDishViewController" customModule="SidedishApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TTu-CM-h5M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,14 +144,14 @@
                                                     <constraint firstItem="2Wh-cs-2ib" firstAttribute="leading" secondItem="4d3-eB-HpJ" secondAttribute="trailing" constant="28" id="ujW-gx-e8v"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="discountedPrice" destination="4d3-eB-HpJ" id="6zc-Dg-0ff"/>
-                                                    <outlet property="eventBadge" destination="XJv-zz-c7a" id="BQ0-ov-Jy8"/>
-                                                    <outlet property="price" destination="2Wh-cs-2ib" id="2I4-3t-hve"/>
-                                                    <outlet property="productName" destination="Sum-W3-2ZQ" id="0L1-X3-4JH"/>
-                                                    <outlet property="productSubdescription" destination="gjl-m8-xLS" id="enB-fN-f6b"/>
+                                                    <outlet property="descriptionLabel" destination="gjl-m8-xLS" id="wNs-kZ-Dgc"/>
+                                                    <outlet property="discountedPriceLabel" destination="4d3-eB-HpJ" id="SIK-Gr-a98"/>
+                                                    <outlet property="eventBadgeLabel" destination="XJv-zz-c7a" id="BQ0-ov-Jy8"/>
+                                                    <outlet property="nameLabel" destination="Sum-W3-2ZQ" id="46R-Wc-Xsg"/>
+                                                    <outlet property="priceLabel" destination="2Wh-cs-2ib" id="2I4-3t-hve"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06U-ul-SkG" customClass="DeliveryConditionContainer" customModule="SidedishApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06U-ul-SkG" customClass="PurchaseInformationContainer" customModule="SidedishApp" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="614" width="382" height="148"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="52원" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLS-qn-rqn">
@@ -216,12 +216,9 @@
                                                     <constraint firstItem="WBp-LV-QMg" firstAttribute="top" secondItem="tyR-KS-h60" secondAttribute="bottom" constant="59" id="xL6-3j-iBf"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="deliveryCharge" destination="WBp-LV-QMg" id="bB6-9i-Grc"/>
-                                                    <outlet property="deliveryChargeAmount" destination="kR9-If-kae" id="6Zi-Tr-BCW"/>
-                                                    <outlet property="deliveryInfo" destination="tyR-KS-h60" id="wp3-TR-zmd"/>
-                                                    <outlet property="deliveryInfoDetail" destination="yot-rg-9I7" id="9dN-Do-OoK"/>
-                                                    <outlet property="reserve" destination="qGP-26-LTm" id="EdL-BU-s0o"/>
-                                                    <outlet property="reserveAmount" destination="DLS-qn-rqn" id="XJO-zc-hyq"/>
+                                                    <outlet property="deliveryFeeLabel" destination="kR9-If-kae" id="6Zi-Tr-BCW"/>
+                                                    <outlet property="deliveryInfoLabel" destination="yot-rg-9I7" id="9dN-Do-OoK"/>
+                                                    <outlet property="pointLabel" destination="DLS-qn-rqn" id="XJO-zc-hyq"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfx-pi-7Pi" customClass="OrderQuantityContainer" customModule="SidedishApp" customModuleProvider="target">
@@ -242,9 +239,6 @@
                                                     <constraint firstItem="vYs-LE-9Pp" firstAttribute="leading" secondItem="Qfx-pi-7Pi" secondAttribute="leading" id="dMl-A5-W9W"/>
                                                     <constraint firstAttribute="trailing" secondItem="vYs-LE-9Pp" secondAttribute="trailing" constant="338" id="ybK-VP-qrH"/>
                                                 </constraints>
-                                                <connections>
-                                                    <outlet property="quantity" destination="vYs-LE-9Pp" id="3PS-s1-T4Y"/>
-                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6N-gY-VNX" customClass="OrderInfoContainer" customModule="SidedishApp" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="851" width="382" height="152"/>
@@ -284,11 +278,6 @@
                                                     <constraint firstAttribute="bottom" secondItem="Moh-VY-U0H" secondAttribute="bottom" id="chY-ES-7ae"/>
                                                     <constraint firstItem="Scd-wS-TSC" firstAttribute="top" secondItem="E6N-gY-VNX" secondAttribute="top" constant="24" id="jY2-Pe-rDc"/>
                                                 </constraints>
-                                                <connections>
-                                                    <outlet property="orderButton" destination="Moh-VY-U0H" id="ReW-Rg-cux"/>
-                                                    <outlet property="totalAmount" destination="Scd-wS-TSC" id="YKd-rh-cwF"/>
-                                                    <outlet property="totalAmountTitle" destination="7AF-em-976" id="Wcg-j2-tZH"/>
-                                                </connections>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2A8-Bh-zhv">
                                                 <rect key="frame" x="16" y="1052" width="382" height="170"/>
@@ -331,17 +320,6 @@
                                             <constraint firstAttribute="trailing" secondItem="2A8-Bh-zhv" secondAttribute="trailing" constant="16" id="xei-1g-z8p"/>
                                             <constraint firstItem="06U-ul-SkG" firstAttribute="leading" secondItem="OIg-fh-AqC" secondAttribute="leading" constant="16" id="zKz-1Y-xdN"/>
                                         </constraints>
-                                        <connections>
-                                            <outlet property="deliveryConditionContainer" destination="06U-ul-SkG" id="I8r-32-dJZ"/>
-                                            <outlet property="detailImageStackView" destination="2A8-Bh-zhv" id="CHn-5B-PTV"/>
-                                            <outlet property="orderInfoContainer" destination="E6N-gY-VNX" id="S8Q-Pg-1Jb"/>
-                                            <outlet property="orderQuantityContainer" destination="Qfx-pi-7Pi" id="tfc-NB-vf5"/>
-                                            <outlet property="productDescription" destination="uCW-jh-IiZ" id="G2S-gV-Jbn"/>
-                                            <outlet property="productDesxcription1" destination="3P4-Hu-GLL" id="uPb-Za-W0n"/>
-                                            <outlet property="productDesxcription2" destination="3Eh-Pl-yYu" id="4W6-mI-7WP"/>
-                                            <outlet property="productDetailContainer" destination="A9H-SZ-iJM" id="vmT-Tj-6w7"/>
-                                            <outlet property="productImage" destination="7Ch-VT-acU" id="SW2-He-Uc5"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -353,9 +331,6 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Gpu-GQ-CHl"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6XA-dF-inC"/>
-                                <connections>
-                                    <outlet property="containerView" destination="OIg-fh-AqC" id="TV9-Yl-LvN"/>
-                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oAk-qK-9z0"/>
@@ -370,7 +345,13 @@
                     <navigationItem key="navigationItem" id="aQp-yV-oA5"/>
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>
+                        <outlet property="detailContainer" destination="A9H-SZ-iJM" id="fRy-SR-xGu"/>
+                        <outlet property="detailImageStackView" destination="2A8-Bh-zhv" id="q4B-qa-Pf9"/>
+                        <outlet property="orderButton" destination="Moh-VY-U0H" id="apR-kG-0gv"/>
                         <outlet property="productDetailView" destination="XAI-VV-Lv1" id="0u9-TC-RpA"/>
+                        <outlet property="productImage" destination="7Ch-VT-acU" id="rSS-9h-OhE"/>
+                        <outlet property="purchaseInfoContainer" destination="06U-ul-SkG" id="LWQ-p8-VXh"/>
+                        <outlet property="totalAmount" destination="Scd-wS-TSC" id="8G4-c9-JK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIs-gv-gDC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
