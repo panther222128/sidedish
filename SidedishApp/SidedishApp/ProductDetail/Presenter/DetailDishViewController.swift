@@ -23,3 +23,11 @@ class DetailDishViewController: UIViewController {
     
 
 }
+
+// 실행이 안됨...와이...와이..!!!
+extension DetailDishViewController: SendInfoDelegate {
+    func send(detail: Dish?) {
+        guard let dish = detail else { return }
+        self.detailContainer.updateLabels(with: dish)
+    }
+}
