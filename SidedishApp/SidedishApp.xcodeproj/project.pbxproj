@@ -96,9 +96,8 @@
 		A00886AB262D68FF00C86BF6 /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
-				A00886B1262D692E00C86BF6 /* Controller */,
+				A00886B1262D692E00C86BF6 /* Presenter */,
 				A00886B3262D693C00C86BF6 /* ViewModel */,
-				A00886B4262D694000C86BF6 /* View */,
 			);
 			path = ProductDetail;
 			sourceTree = "<group>";
@@ -107,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				A00886AF262D691E00C86BF6 /* ViewModel */,
-				A00886B0262D692300C86BF6 /* View */,
+				A00886B0262D692300C86BF6 /* Presenter */,
 				A00886AD262D691400C86BF6 /* Model */,
 			);
 			path = Main;
@@ -122,7 +121,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A00886AE262D691700C86BF6 /* Cell */ = {
+		A00886AE262D691700C86BF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				AE85994C262EB3FD0033C525 /* DishCell.swift */,
@@ -130,7 +129,7 @@
 				AEBD83522637A1FD0037D8AE /* DishSupplementaryView.xib */,
 				AE85994D262EB3FD0033C525 /* DishCell.xib */,
 			);
-			path = Cell;
+			path = View;
 			sourceTree = "<group>";
 		};
 		A00886AF262D691E00C86BF6 /* ViewModel */ = {
@@ -141,22 +140,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		A00886B0262D692300C86BF6 /* View */ = {
+		A00886B0262D692300C86BF6 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				A008869A262D688E00C86BF6 /* ViewController.swift */,
 				AE859952262EB8630033C525 /* MainDishViewController.swift */,
-				A00886AE262D691700C86BF6 /* Cell */,
+				A00886AE262D691700C86BF6 /* View */,
 			);
-			path = View;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
-		A00886B1262D692E00C86BF6 /* Controller */ = {
+		A00886B1262D692E00C86BF6 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				AE65075126394E14009D26B1 /* DetailDishViewController.swift */,
+				A00886B4262D694000C86BF6 /* View */,
 			);
-			path = Controller;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		A00886B3262D693C00C86BF6 /* ViewModel */ = {
