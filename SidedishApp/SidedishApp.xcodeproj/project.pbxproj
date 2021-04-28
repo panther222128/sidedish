@@ -85,7 +85,6 @@
 				A00886B5262D698E00C86BF6 /* Base */,
 				A00886AC262D690D00C86BF6 /* Main */,
 				A00886AB262D68FF00C86BF6 /* ProductDetail */,
-				AE65074E26394D4D009D26B1 /* Model */,
 				AEAE35662635B73D00A91A03 /* NetworkService.swift */,
 			);
 			path = SidedishApp;
@@ -96,6 +95,7 @@
 			children = (
 				A00886B1262D692E00C86BF6 /* Presenter */,
 				A00886B3262D693C00C86BF6 /* ViewModel */,
+				AE65074E26394D4D009D26B1 /* Model */,
 			);
 			path = ProductDetail;
 			sourceTree = "<group>";
@@ -103,8 +103,8 @@
 		A00886AC262D690D00C86BF6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A00886AF262D691E00C86BF6 /* ViewModel */,
 				A00886B0262D692300C86BF6 /* Presenter */,
+				A00886AF262D691E00C86BF6 /* ViewModel */,
 				A00886AD262D691400C86BF6 /* Model */,
 			);
 			path = Main;
