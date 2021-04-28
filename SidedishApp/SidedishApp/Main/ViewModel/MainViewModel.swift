@@ -9,19 +9,16 @@ import Foundation
 import Combine
 
 protocol MainViewModel {
+    func requestAll()
     func update(completion: @escaping (Section, [Dish]) -> Void)
 }
 
 class DefaultMainViewModel: MainViewModel {
     
-    private let useCase = MainUseCase() // UseCase
+    private let useCase = MainUseCase()
     private var cancellable = Set<AnyCancellable>()
     
-    init() {
-        requestAll()
-    }
-    
-    private func requestAll() {
+    func requestAll() {
         Section.allCases.forEach { section in
             useCase.request(type: section) }
     }
@@ -31,7 +28,6 @@ class DefaultMainViewModel: MainViewModel {
             completion(section, item)
         }
     }
-    
 }
 
 class MainUseCase {
