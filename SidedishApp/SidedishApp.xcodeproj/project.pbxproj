@@ -432,7 +432,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
-				INFOPLIST_FILE = /Users/junhojang/Documents/CodesquadSwift/sidedish/SidedishApp/Info.plist;
+				INFOPLIST_FILE = /Users/gimjigyeong/Desktop/Developer/masters/sidedish/SidedishApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,7 +451,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
-				INFOPLIST_FILE = /Users/junhojang/Documents/CodesquadSwift/sidedish/SidedishApp/Info.plist;
+				INFOPLIST_FILE = /Users/gimjigyeong/Desktop/Developer/masters/sidedish/SidedishApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
