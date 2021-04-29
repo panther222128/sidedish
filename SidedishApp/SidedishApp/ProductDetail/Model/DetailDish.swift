@@ -8,8 +8,13 @@
 import Foundation
 
 struct DetailDishes: Decodable {
+    var statusCode: Int
+    var body: [Detail]
+}
+
+struct Detail: Decodable {
     var hash: String
-    var data: [DetailDish]
+    var data: DetailDish
 }
 
 struct DetailDish: Hashable, Codable {
