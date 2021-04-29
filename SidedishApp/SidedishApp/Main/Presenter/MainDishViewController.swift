@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol SendInfoDelegate {
-    func send(detail: Dish?)
+    func send(section: Section, detail: Dish?)
 }
 
 class MainDishViewController: UIViewController {
@@ -21,11 +21,6 @@ class MainDishViewController: UIViewController {
     
     private var dishDataSource: UICollectionViewDiffableDataSource<Section, Dish>!
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        guard let nextVC = segue.destination as? DetailDishViewController else { return }
-        self.delegate = nextVC
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,11 +93,14 @@ extension MainDishViewController : UICollectionViewDelegateFlowLayout {
 
 extension MainDishViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let dish = self.dishDataSource.itemIdentifier(for: indexPath)
-        delegate?.send(detail: dish)
+        let dish = self.dishDataSource.itemIdentifier(for: indexPath)!
+        let section = Section.allCases[indexPath.section]
+        delegate?.send(section: section, detail: dish)
         
-        self.performSegue(withIdentifier: "detail", sender: nil)
         let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DetailDishViewController") as DetailDishViewController
+        
+        detailViewController.dish = dish
+        detailViewController.section = section
         
         self.navigationController?.pushViewController(detailViewController, animated: false)
 
